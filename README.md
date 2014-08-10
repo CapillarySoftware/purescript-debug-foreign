@@ -1,5 +1,7 @@
 # Module Documentation
 
+[![Build Status](https://travis-ci.org/CapillarySoftware/purescript-foreign-debug.svg?branch=master)](https://travis-ci.org/CapillarySoftware/purescript-foreign-debug)
+
 ## Module Debug.Foreign
 
 ### Values
