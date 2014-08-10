@@ -17,11 +17,11 @@
 
     data Evil :: !
 
-    data WTF :: *
+    data Unsafe :: *
 
 
 ### Values
 
-    evil :: forall r. String -> Eff (evil :: Evil | r) WTF
+    evil :: forall r. String -> Eff (evil :: Evil | r) Unsafe
 
     fpeek :: forall r. String -> Eff (evil :: Evil, trace :: Trace | r) Unit
