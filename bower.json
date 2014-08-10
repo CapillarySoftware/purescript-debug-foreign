@@ -1,7 +1,7 @@
 {
-  "name": "purescript-foreign-debug",
+  "name": "purescript-debug-foreign",
   "version": "0.0.1",
-  "homepage": "https://github.com/CapillarySoftware/purescript-foreign-debug",
+  "homepage": "https://github.com/CapillarySoftware/purescript-debug-foreign",
   "authors": [
     "Isaac Shapira <fresheyeball@gmail.com>"
   ],
