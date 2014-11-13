@@ -9,3 +9,10 @@ fprint = unsafeForeignProcedure ["x", ""] "console.log(x)"
 
 ftrace :: forall a r. a -> Eff (trace :: Trace | r) Unit
 ftrace = unsafeForeignProcedure ["x", ""] "console.log(JSON.stringify(x))"
+
+foreign import fspy """
+  function fspy(x){
+    console.log(x);
+    return x;
+  }
+""" :: forall a. a -> a

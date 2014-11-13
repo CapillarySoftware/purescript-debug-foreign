@@ -1,27 +1,27 @@
 # Module Documentation
 
-[![Build Status](https://travis-ci.org/CapillarySoftware/purescript-foreign-debug.svg?branch=master)](https://travis-ci.org/CapillarySoftware/purescript-foreign-debug)
-
 ## Module Debug.Foreign
 
 ### Values
 
     fprint :: forall a r. a -> Eff (trace :: Trace | r) Unit
 
+    fspy :: forall a. a -> a
+
     ftrace :: forall a r. a -> Eff (trace :: Trace | r) Unit
 
 
-## Module Debug.Foreign.Evil
+## Module Debug.Foreign.Eval
 
 ### Types
 
-    data Evil :: !
+    data Eval :: !
 
     data Unsafe :: *
 
 
 ### Values
 
-    evil :: forall r. String -> Eff (evil :: Evil | r) Unsafe
+    eval :: forall r. String -> Eff (evil :: Eval | r) Unsafe
 
-    fpeek :: forall r. String -> Eff (evil :: Evil, trace :: Trace | r) Unit
+    fpeek :: forall r. String -> Eff (evil :: Eval, trace :: Trace | r) Unit
