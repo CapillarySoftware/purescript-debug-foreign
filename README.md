@@ -8,11 +8,11 @@
 
 ### Values
 
-    fprint :: forall a r. a -> Eff (trace :: Trace | r) Unit
+    fprint :: forall a e. a -> Eff (trace :: Trace | e) a
 
-    fspy :: forall a. a -> a
+    fprintStringify :: forall a e. a -> Eff (trace :: Trace | e) a
 
-    ftrace :: forall a r. a -> Eff (trace :: Trace | r) Unit
+    fprintUnsafe :: forall a. a -> a
 
 
 ## Module Debug.Foreign.Eval
@@ -26,6 +26,6 @@
 
 ### Values
 
-    eval :: forall r. String -> Eff (evil :: Eval | r) Unsafe
+    evaluate :: forall r. String -> Eff (evil :: Eval | r) Unsafe
 
-    fpeek :: forall r. String -> Eff (evil :: Eval, trace :: Trace | r) Unit
+    fpeek :: forall r. String -> Eff (evil :: Eval, trace :: Trace | r) Unsafe

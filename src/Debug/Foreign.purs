@@ -1,18 +1,29 @@
-module Debug.Foreign where 
+module Debug.Foreign where
 
-import Data.Foreign.EasyFFI
 import Control.Monad.Eff
 import Debug.Trace
 
-fprint :: forall a r. a -> Eff (trace :: Trace | r) Unit
-fprint = unsafeForeignProcedure ["x", ""] "console.log(x)"
+foreign import fprint """
+  function fprint(x){
+    return function(){
+      console.log(x);
+      return x;
+    };
+  }
+""" :: forall a e. a -> Eff (trace :: Trace | e) a
 
-ftrace :: forall a r. a -> Eff (trace :: Trace | r) Unit
-ftrace = unsafeForeignProcedure ["x", ""] "console.log(JSON.stringify(x))"
-
-foreign import fspy """
-  function fspy(x){
+foreign import fprintUnsafe """
+  function fprintUnsafe(x){
     console.log(x);
     return x;
   }
 """ :: forall a. a -> a
+
+foreign import fprintStringify """
+  function fprintStringify(x){
+    console.log(JSON.stringify(x));
+    return x;
+  }
+""" :: forall a e. a -> Eff (trace :: Trace | e) a
+
+fspy = fprintUnsafe
