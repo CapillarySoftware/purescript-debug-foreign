@@ -14,9 +14,6 @@
     "Logging"
   ],
   "license": "MIT",
-  "dependencies": {
-    "purescript-easy-ffi": "~1.0.1"
-  },
   "ignore": [
     "**/.*",
     "bower_components",
