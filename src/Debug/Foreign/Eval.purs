@@ -2,7 +2,6 @@ module Debug.Foreign.Eval where
 
     --- Why on earth would you ever use this module?
 
-import Data.Foreign.EasyFFI
 import Control.Monad.Eff
 import Debug.Trace
 import Debug.Foreign
@@ -10,8 +9,13 @@ import Debug.Foreign
 foreign import data Eval   :: !
 foreign import data Unsafe :: *
 
-eval :: forall r. String -> Eff (evil :: Eval | r) Unsafe
-eval = unsafeForeignFunction ["x", ""] "eval(x)"
+foreign import evaluate """
+  function evaluate(x){
+    return function(){
+      return eval(x);
+    };
+  }
+""" :: forall r. String -> Eff (evil :: Eval | r) Unsafe
 
 fpeek :: forall r. String -> Eff (trace :: Trace, evil :: Eval | r) Unsafe
-fpeek x = eval x >>= fprint
+fpeek x = evaluate x >>= fprint
