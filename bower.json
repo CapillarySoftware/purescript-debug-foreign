@@ -1,6 +1,6 @@
 {
   "name": "purescript-debug-foreign",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/CapillarySoftware/purescript-debug-foreign",
   "authors": [
     "Isaac Shapira <fresheyeball@gmail.com>"
