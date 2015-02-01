@@ -15,6 +15,13 @@
     fprintUnsafe :: forall a. a -> a
 
 
+## Module Debug.Spy
+
+### Values
+
+    spy :: forall a. (Show a) => a -> a
+
+
 ## Module Debug.Foreign.Eval
 
 ### Types
